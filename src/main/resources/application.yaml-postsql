@@ -1,0 +1,23 @@
+spring:
+  jpa:
+    show-sql: true
+    hibernate:
+      #ddl-auto: create-drop # 새로 추가한 옵션 Entity Class 기반으로 Table 생성
+       ddl-auto: none
+  datasource:
+    url: jdbc:postgresql://repick.iptime.org:35432/postgres?useUnicode=yes&characterEncoding=UTF-8
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      max-lifetime: 300000
+      maximum-pool-size: 10
+      minimum-idle: 3
+      #pool-name: SMART-CITY-DB
+      schema: adminpage #스키마 선택
+logging:
+  level:
+    root: info
+    com.zaxxer.hikari.HikariConfig: debug
+    org.hibernate.SQL: debug
+    hibernate.type.descriptor.sql.BasicBinder: trace
